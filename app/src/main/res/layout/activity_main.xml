@@ -97,6 +97,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvLabelLista">
 
         <TextView
+            android:id="@+id/tvListaCompras"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -106,6 +107,6 @@
             android:background="#FBFBE8"
             android:text="123\nasd\nasd\nasd\nasd\nasd\nasd\nasd\nasd\nasd\nasd\nasd\nasd\nasd\nasd\nasd"
             android:padding="10dp"
-            android:textSize="22sp"/>
+            android:textSize="18sp"/>
   </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
