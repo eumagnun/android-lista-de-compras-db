@@ -14,7 +14,7 @@ class MyApplication: Application() {
         super.onCreate()
         database = Room.databaseBuilder(
             applicationContext,
-            ProdutoDatabase::class.java, "meu-produtodb2"
+            ProdutoDatabase::class.java, "produtodb"
         )
             .allowMainThreadQueries() //não faça isso em produção
             .build()
