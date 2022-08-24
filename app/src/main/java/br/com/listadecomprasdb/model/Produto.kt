@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Produto(
 
     @PrimaryKey(autoGenerate = true)
-    val id:Long=0,
+    var id:Long=0,
     val nome:String,
     val marca:String,
     val quantidade:Int

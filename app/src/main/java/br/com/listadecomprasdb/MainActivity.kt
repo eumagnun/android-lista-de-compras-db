@@ -28,11 +28,10 @@ class MainActivity : AppCompatActivity() {
 
         btSalvar.setOnClickListener {
 
-            MyApplication.database?.getProdutoDao()?.salvar( Produto(
-                1,
-                etProduto.text.toString(),
-                etMarca.text.toString(),
-                etQuantidade.text.toString().toInt()
+            MyApplication.database.produtoDao().salvar( Produto(
+                nome=etProduto.text.toString(),
+                marca=etMarca.text.toString(),
+                quantidade = etQuantidade.text.toString().toInt()
             ))
            /* FakeDataBase.database.add(
                 Produto(
@@ -43,12 +42,12 @@ class MainActivity : AppCompatActivity() {
                 )
             )
             */
-            atualizarLista(MyApplication.database?.getProdutoDao()!!.consultar())
+            atualizarLista(MyApplication.database.produtoDao().consultar())
             //atualizarLista(FakeDataBase.database)
             limparCampos()
         }
 
-        atualizarLista(MyApplication.database?.getProdutoDao()!!.consultar())
+        atualizarLista(MyApplication.database.produtoDao().consultar())
     }
 
     private fun atualizarLista(listaProdutos: List<Produto>) {
