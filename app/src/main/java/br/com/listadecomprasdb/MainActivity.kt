@@ -5,7 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import br.com.listadecomprasdb.dao.FakeDataBase
+import br.com.listadecomprasdb.database.FakeDataBase
 import br.com.listadecomprasdb.model.Produto
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +27,14 @@ class MainActivity : AppCompatActivity() {
         tvListaCompras = findViewById(R.id.tvListaCompras)
 
         btSalvar.setOnClickListener {
-            FakeDataBase.database.add(
+
+            MyApplication.database?.getProdutoDao()?.salvar( Produto(
+                1,
+                etProduto.text.toString(),
+                etMarca.text.toString(),
+                etQuantidade.text.toString().toInt()
+            ))
+           /* FakeDataBase.database.add(
                 Produto(
                     1,
                     etProduto.text.toString(),
@@ -35,10 +42,13 @@ class MainActivity : AppCompatActivity() {
                     etQuantidade.text.toString().toInt()
                 )
             )
-
-            atualizarLista(FakeDataBase.database)
+            */
+            atualizarLista(MyApplication.database?.getProdutoDao()!!.consultar())
+            //atualizarLista(FakeDataBase.database)
             limparCampos()
         }
+
+        atualizarLista(MyApplication.database?.getProdutoDao()!!.consultar())
     }
 
     private fun atualizarLista(listaProdutos: List<Produto>) {

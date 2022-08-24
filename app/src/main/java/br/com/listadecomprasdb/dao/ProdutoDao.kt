@@ -1,15 +1,18 @@
 package br.com.listadecomprasdb.dao
 
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import br.com.listadecomprasdb.database.FakeDataBase
 import br.com.listadecomprasdb.model.Produto
 
-class ProdutoDao {
+@Dao
+interface ProdutoDao {
 
 
-    fun salvar(produto: Produto){
-        FakeDataBase.database.add(produto)
-    }
+    @Insert
+    fun salvar(produto: Produto)
 
-    fun consultar():List<Produto>{
-        return FakeDataBase.database
-    }
+    @Query("SELECT * FROM Produto")
+    fun consultar():List<Produto>
 }

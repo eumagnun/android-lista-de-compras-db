@@ -1,4 +1,4 @@
-package br.com.listadecomprasdb.dao
+package br.com.listadecomprasdb.database
 
 import br.com.listadecomprasdb.model.Produto
 
